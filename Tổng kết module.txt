@@ -1,8 +1,8 @@
 Gatsby:
 
 
-
 # Basic
+=> refer tới "Module hiểu bản chất về Gatsby"
 
 
 
@@ -11,4 +11,5 @@ Gatsby:
 
 
 # Other
+
 

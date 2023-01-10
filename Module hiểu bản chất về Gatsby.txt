@@ -1,10 +1,7 @@
-Hiểu về Gatsby
-
+# Hiểu về Gatsby
 => refer tới "React / Module tính năng React18 / SSR và CSR"
 
-
-
-Static website:
+-> Static website:
 Có 2 cách hiểu: 1 là website chỉ có HTML thuần, nội dung k đổi và k thể tương tác, nó refer đến các trang web từ những năm 90s, lúc WWW mới ra đời thì các trang web hầu hết là static. Tuy nhiên khi công nghệ phát triển bắt đầu xuất hiện nhiều kiểu render và static website có thể call API bằng JS file nên có thể hiểu có nhiều website hiện nay là static hơn là chỉ những web ngày xưa. Ta chỉ xét bản mới kia thôi.
 Để phân biệt 1 website là static hay không: website là static có thể được hosted trên CDN or dùng 1 web server, nếu là static thì khi có request, nó sẽ nhận được nội dung luôn mà k cần phải xử lý gì thêm. Ta k thể nói CSR hay SSR là static web được vì có static web dùng CSR, có loại không. Chính vì v nên static web k dùng database hay ta nói ứng dụng của nó tách biệt với database.
 Static website có thể có 1 form mà user nhập vào và thực hiện static site query tới 1 database để hiển thị kết quả cho user, vẫn thỏa mãn điều kiện trên nên ta có thể nói hầu hết các website dùng CSR là static web.
@@ -12,12 +9,12 @@ Tuy nhiên cũng chưa đúng lắm vì static web còn liên quan nhiều tới
 => Đó là tính chất của static web. Hiện nay có nhiều tool tạo static web và có thể có thêm or lược bớt nhiều tính chất nhưng những tính chất trên là cơ bản tối thiểu để 1 trang web là static.
 VD: có web static nội dung k thể thay đổi và nó k fetch API gì cả, người dùng k thể tương tác, để update nội dung mới nhất thì người sử dụng phải deploy lại website cứ 2-3 lần 1 ngày, để tự động thì họ viết 1 con bot làm điều đó.
 Tức là website chia 2 giai đoạn là build time xong rồi deploy, sau đó người dùng truy cập vào thì nó là runtime. Static web được coi là fetch API và dùng nó trong build time, nội dung k thể call và thay đổi trong run time nhưng thực tế, nhiều công nghệ giúp dev code static web vẫn call api run time được thoải mái, thậm chí có form đăng nhập luôn.
-VD: có static web mà nội dung thay đổi nhờ fetch API, người dùng có thể tương tác nhưng k có form đăng nhập. Có loại lại có form đăng nhập. Ranh giới này không được fix cứng, web site như này lại k được coi là CSR vì nó có cache giống với SSG hơn. Ranh giới dần break nhưng web loại này vẫn coi là static web. Nên nếu gặp 1 công nghệ tạo static web mà cho phép call api này nọ thì là điều hoàn toàn bth.
+VD: có static web mà nội dung thay đổi nhờ fetch API, người dùng có thể tương tác nhưng k có form đăng nhập. Có loại lại có form đăng nhập. Ranh giới này không được fix cứng, website như này lại k được coi là CSR vì nó có cache giống với SSG hơn. Ranh giới dần break nhưng web loại này vẫn coi là static web. Nên nếu gặp 1 công nghệ tạo static web mà cho phép call api này nọ thì là điều hoàn toàn bth.
 Chú ý phân biệt static web và static files. Dù static web chạy các static file nhưng SSR cung cho client toàn static files k có nghĩa web SSR luôn là static web, nó phụ thuộc vào cách code đó.
 
 Các website dùng static thường là web documentation, web thống kê số liệu. Các web bán hàng cũng dùng được nếu k nhiều khách mà cần tốc độ cao.
 
-So sánh các kiểu rendering
+-> So sánh các kiểu rendering
 1) SSR: đã biết
 Nó cũng có hệ thống caching, cdn dễ dàng, có thể nói tốc độ của nó k thua gì static web.
 VD: voz.vn là SSR
@@ -25,17 +22,24 @@ VD: voz.vn là SSR
 VD: facebook dùng CSR
 Công nghệ: react, vue, angular
 3) Pre-rendering: công nghệ ra đời khắc phục nhược điểm của SSR và CSR
--> Static site generation: web được render ra html trong quá trình build nên html luôn trong trạng thái sẵn sàng cho mỗi request. 
+-> Static site generation: web được render ra html trong quá trình build nên html luôn trong trạng thái sẵn sàng cho mỗi request. (Bản cũ chỉ fetch API lúc đầu tiên, về sau fetch API được như CSR nhưng k nhiều, nó tĩnh ở chỗ data fix khi lần đầu vào vì fetch data sẵn nhét vào page tĩnh mà, muốn update phải redeploy)
 VD: Trang chủ React
 Công nghệ SSG: GatsbyJS, Hugo, NuxtJS, NextJS(làm cả SSG, CSR, SSR)
 Web kiểu này web sẽ hiển thị sai với data thay đổi quá thường xuyên, dù call api được nhưng những phần call api thì lại giống như CSR nên k thân thiện SEO và do cache nhiều nên data thay đổi thường xuyên vẫn sai. Nếu update code rất mệt vì build rất lâu.
--> Server side rendering(Universal SSR): Khi request lần đầu, server gọi API render HTML, CSS, JS gửi cho client giống SSR. Ở các request tiếp theo thì client tự gọi API và render tại client giống CSR.
+-> Server side rendering(Universal SSR): Khi request lần đầu, server gọi API render HTML, CSS, JS gửi cho client giống SSR. Ở các request tiếp theo thì client tự gọi API và render tại client giống CSR => cx là 1 kiểu SSR
 VD: NextJS, NuxtJS cho phép dùng kiểu này luôn
 => NextJS dùng nhiều loại chứ kp lúc nào cũng SSR, học nó thì làm kiểu gì cũng được
 4) Dynamic rendering: chính là kiểu khắc phục của CSR, check nếu đổi tượng request là browser thì server trả về SPA 1 phiên bản, nếu là bot của google, bing thì server trả về html đã được render để phục vụ crawler. Tất cả chỉ để khắc phục vấn đề SEO của CSR. 
 Công nghê: Puppeteer, Rendertron, prerender.io
 
-Gatsby là công nghệ tạo static web, nhưng với các khái niệm bên trên, nó có thể tạo 1 website tương tự React nhưng tốc độ rất crazy. Điểm yếu hơn là không phù hợp với ứng dụng real time hay có nhiều data cần sự thay đổi, ta k chơi kiểu config bỏ cache thì chả khác mẹ gì CSR cả nên k nói. Ta có thể host lên cloud CDN, k cần sử dụng server. Do nó k có server nên bảo mật tốt, loại bỏ mọi sự tấn công kiểu inject. Thực tế nếu tương tác API at runtime thì nó vẫn có thôi nhưng là ứng dụng tách biệt.
+=> Nhanh phân biệt:
+CSR realtime static client fetch data fill vào chỗ trống. VD: React
+SSR realtime server, client request thì server fetch data hộ r gửi lại html đã được render, client tiếp tục fetch js event file. Vd tiêu biểu nhất là web NodeJS
+SSG k cần server, web được fetch data sẵn ở lần build từ trước ra file html rồi, nhưng kp là tất cả mà nó vẫn gọi được API call về sau (từ phía client), cache mạnh nên k realtime. VD: NextJS
+Universal SSR: Lần đầu vào data vẫn được server fetch sẵn, tải về xong về sau client vẫn fetch data tiếp. VD: NextJS
+Dynamic rendering: xàm lol k nói. VD có thể config trong nginx
+
+-> Gatsby là công nghệ tạo static web, nhưng với các khái niệm bên trên, nó có thể tạo 1 website tương tự React nhưng tốc độ rất crazy. Điểm yếu hơn là không phù hợp với ứng dụng real time hay có nhiều data cần sự thay đổi, ta k chơi kiểu config bỏ cache thì chả khác mẹ gì CSR cả nên k nói. Ta có thể host lên cloud CDN, k cần sử dụng server. Do nó k có server nên bảo mật tốt, loại bỏ mọi sự tấn công kiểu inject. Thực tế nếu tương tác API at runtime thì nó vẫn có thôi nhưng là ứng dụng tách biệt.
 
 Gatsby cho phép tạo static mà tương tác như React luôn. 
 Gatsby tương tác với API có thể thông qua graphql or axios, thực tế Gatsby generate JS files từ React nên thoải mái. Người ta khuyên GraphQL hơn vì nó có sẵn trong Gatsby, và đương nhiên server cũng phải enable. Để get data dynamic từ source ngoài, ta phải dùng file gatsby-node.js(có trong docs hết) với useStaticQuery. Nó cho phép chạy 2 loại API: 1 loại động, 1 loại chỉ fetch trước mỗi lần build và k thay đổi sau khi deploy, trừ khi build lại và deploy lại. Loại thứ 2 thì nó fetch rồi lưu trong file json fix cứng đó.
@@ -43,9 +47,10 @@ Thời gian build cực kỳ lâu. Gatsby có nhiều plugin hỗ trợ trong vi
 
 Nếu muốn độc lập k cần management 1 server thì có thể dùng các dịch vụ bên thứ 3. VD tạo 1 hệ thống bình luận thì dùng dịch vụ lưu trữ bình luận như Commento, Facebook Comments,.. vì cuối cùng gatsby chỉ tạo ra static file. 1 đặc điểm của static file là k nên lập trình thêm phía server và CDN là rất tốt nếu cần query API từ nhiều nguồn khác nhau nên làm điều này rất ok, tuân theo JAMstack.
 
-Tạo 1 dự án gatsby rất đơn giản với gatsby-cli(nhanh hơn CRA) và sau đó cứ code React như bth.
+-> Tạo 1 dự án gatsby rất đơn giản với gatsby-cli(nhanh hơn CRA) và sau đó cứ code React như bth.
 
 Pattern thường dùng cho Gatsby: Cách mà ta code sao cho pages được xử lý khác nhau, fetch data lúc build time hay call data lúc run time
+
 -> Static pages: 
 Các components được export từ src/pages chẳng hạn hoặc các pages được tạo ra bằng hàm API là createPate, sau khi chạy gatsby build sẽ sinh ra static files bằng cách loop qua mọi Markdown trong hệ thống. Các page này k cần chạy JS để hydrate nó.
 -> Hybrid app pages: 
@@ -53,20 +58,18 @@ Nói về các page call API external. Nó gọi là hybrid vì nó vẫn giúp 
 -> Client only routes: 
 Client-side router được support bởi Gatsby là @reach/router mà k cần dùng thêm JS lib khác. Có guide riêng. 
 
-JAMstack architecture là 1 kiến trúc phát triển web hiện đại dựa trên JS phía client, các API có thể tái sử dụng và Markup dựng sẵn. Khi nói về stack là ta nói về kiến trúc xây dựng trang web mang hiệu suất và bảo mật cao, chi phí mở rộng thấp. VD: MERNStack
+-> JAMstack architecture là 1 kiến trúc phát triển web hiện đại dựa trên JS phía client, các API có thể tái sử dụng và Markup dựng sẵn. Khi nói về stack là ta nói về kiến trúc xây dựng trang web mang hiệu suất và bảo mật cao, chi phí mở rộng thấp. VD: MERNStack
 Javascript APIs Markup Stack là mô hình được đánh giá là có tốc độ nhanh nhất, bảo mật cao, chi phí thấp. 
 Javascript: React, Vue, Svelte
 APIs: Cloudinary, Commento, SoundCloud
 Markup: Gatsby, Hugo
 
-Có nhiều dòng khác cũng là static site generator: NextJS, NuxtJS, Hugo, 11ty
+Có nhiều dòng khác cũng hỗ trợ static site generator: NextJS, NuxtJS, Hugo, 11ty
 
-Phân biệt DSG và ISR:
--> Incremental Static Regeneration(ISR): ra đời trước và dùng trong NextJS để update static pages sau khi built và deployed rồi. 
+-> Phân biệt DSG và ISR:
+--> Incremental Static Regeneration(ISR): ra đời trước và dùng trong NextJS để update static pages sau khi built và deployed rồi. 
 Nó thực hiện SSR cho các page chưa được generated static or data đã cũ. Nếu page chưa được generated static thì page sẽ được generate ở phía server để gửi lại, tức request lần đầu tiên sẽ phải chờ 1 tẹo. Nếu page đã có static nhưng bị stale(quá staletime), browser serve page cũ, server sẽ fetch lại data và phải reload lần nữa mới có data mới.
 Vd: ta có 1000 product thì có thể k muốn build static tất cả vào build time. Nhưng nếu dùng ISR, có thể tải 100 product để vào là có, còn 900 request còn lại chờ user request thôi. Vc giảm số lượng product sẽ giảm thời gian build, sau khi user request rồi thì nó đã được cache, lần sau request sẽ có tức thì
 => Trông ok nhưng nếu sản phẩm bị thay đổi thì mà k quá stale time thì hiện data có thể sai với thực tế
-
--> Deferred Static Generation(DSG): Gatsby dùng DSG. Khi dùng ISR có thể bị nhiều page conflict info vì 1 cái là mới nhất, 1 cái lại stale vì chưa qua stale time. Nhưng DSG cung các hook để đồng bộ data các page, nhờ đó tránh được lỗi này.
-
+--> Deferred Static Generation(DSG): Gatsby dùng DSG. Khi dùng ISR có thể bị nhiều page conflict info vì 1 cái là mới nhất, 1 cái lại stale vì chưa qua stale time. Nhưng DSG cung các hook để đồng bộ data các page, nhờ đó tránh được lỗi này.
 

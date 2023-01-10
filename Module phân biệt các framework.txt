@@ -1,11 +1,9 @@
-# Các react-based framework, build tool, JS framework: Gatsby, NextJS, NestJS, NuxtJS, React, Vue, Angular, Vite, Svelte, Meteor, Remix Run, Webpack, CRA, VanillaJS, CMS, BackboneJS.
+# Các react-based framework, build tool, JS framework: Gatsby, NextJS, NestJS, NuxtJS, React, Vue, Angular, Vite, Svelte, Meteor, Remix Run, Webpack, CRA, VanillaJS, CMS, BackboneJS, Preact.
 
+-> Webpack là bundler-based build tool, để chạy ứng dụng, nó phải xử lý toàn bộ JS files bao gồm cả dependencies và application code. Khi ta save thay đổi 1 file, toàn bộ code JS sẽ được bundle lại xong thì dev server mới ready. 
+CRA là tool giúp dùng webpack dễ hơn với React khi mà nó config mọi thứ sẵn cho tiện k phải config lại, chứ build tool đúng phải nói là webpack. CRA giúp chúng ta tập trung vào code hơn là config vì nó config hộ thôi, nó kp là 1 build tool.
 
-
-Webpack là bundler-based build tool, để chạy ứng dụng, nó phải xử lý toàn bộ JS files bao gồm cả dependencies và application code. Khi ta save thay đổi 1 file, toàn bộ code JS sẽ được bundle lại xong thì dev server mới ready. 
-CRA là tool giúp dùng webpack dễ hơn khi mà nó config mọi thứ sẵn cho tiện k phải config lại, chứ build tool đúng phải nói là webpack. CRA giúp chúng ta tập trung vào code hơn là config vì nó config hộ thôi, nó kp là 1 build tool.
-
-Vite là 1 JS build tool ra đời nhằm cải tiến hiệu suất cho dev dùng webpack. Vite dùng Rollup để perform dead-code elimination(tree shaking) tốt hơn webpack nhưng tạo production build lâu hơn. 2 vấn đề cơ bản:
+-> Vite là 1 JS build tool ra đời nhằm cải tiến hiệu suất cho dev dùng webpack. Vite dùng Rollup để perform dead-code elimination(tree shaking) tốt hơn webpack nhưng tạo production build lâu hơn. 2 vấn đề cơ bản:
 1) Ngày xưa khác chứ bh, browser cho phép ES Module nên ta có thể chạy JS trên browser mà k cần bundle lại như trước. Như v Vite chỉ cần serve đúng phần code mà browser cần dùng bằng ES module. 
 2) Khi chạy dev server, Vite sẽ chia JS module thành dependency module và application module:
 Dependency module là JS module imported từ node_modules. Các modules này được xử lý và bundled bằng esbuild - 1 JS bundler viết bằng Go có tốc độ nhanh gấp 10 lần webpack.
@@ -13,27 +11,27 @@ Application module là module trong ứng dụng là các file jsx, scss,...
 => Cụ thể là webpack sẽ process mọi JS module khi browser request, Vite sẽ process dependecies module mà thôi còn application module chỉ process khi web yêu cầu.
 VD: Khi browser request /home thì Vite chỉ process module dùng bởi route đó thôi
 
-ReactJS là 1 JS library for building UI xuất phát từ facebook. Nó kp là 1 build tool, cũng kp là 1 framework tuy nhiên nhiều nơi vẫn bảo nó là framework vì k có sự khác biệt nhiều. Nó chỉ là 1 thư viện để dev xây dựng giao diện single page app. Nó là CSR và mang các đặc điểm của CSR. Ta phải code nó ra rồi dùng build tool để xây nên ứng dụng dù nó kp là 1 ngôn ngữ mới mà cũng chỉ xuất phát từ JS mà thôi. React phù hợp với ứng dụng quy mô lớn hay tầng giao diện thay đổi liên tục, phức tạp.
+-> ReactJS là 1 JS library for building UI xuất phát từ facebook. Nó kp là 1 build tool, cũng kp là 1 framework tuy nhiên nhiều nơi vẫn bảo nó là framework vì k có sự khác biệt nhiều. Nó chỉ là 1 thư viện để dev xây dựng giao diện single page app. Nó là CSR và mang các đặc điểm của CSR. Ta phải code nó ra rồi dùng build tool để xây nên ứng dụng dù nó kp là 1 ngôn ngữ mới mà cũng chỉ xuất phát từ JS mà thôi. React phù hợp với ứng dụng quy mô lớn hay tầng giao diện thay đổi liên tục, phức tạp.
 
-AngularJS là 1 framework xây dựng SPA CSR bằng HTML và Typescript, bản thân nó cũng được viết bằng Typescript, được phát triển bởi google. Phiên bản đầu gọi là AngularJS nhưng từ h chỉ dùng phiên bản v2 là Angular.
+-> AngularJS là 1 framework xây dựng SPA CSR bằng HTML và Typescript, bản thân nó cũng được viết bằng Typescript, được phát triển bởi google. Phiên bản đầu gọi là AngularJS nhưng từ h chỉ dùng phiên bản v2 là Angular.
 Angular dùng real DOM luôn trong khi React dùng virtual DOM. Angular khó học hơn React và sử dụng đúng kiến trúc MVC.
 Angular gần như ngang với React k thể so sánh. Các điểm lợi hơn của 1 trong 2 cũng k đáng kể nên nếu đã nắm vững React thì k có lý do gì phải học 1 framework tương đương trừ khi nó có 1 sự thay đổi đáng kể tạo ra hiệu năng hay lợi ích lớn hơn.
 
-Vue là 1 JS framework xây dựng front end app. 
+-> Vue là 1 JS framework xây dựng front end app. 
 Nó mặc định dùng CSR nhưng vẫn có thể dùng để xây SSR rất dễ, khác với React chỉ dùng CSR nhưng React's dev có thể dùng các framework khác như NextJS tương tự React(học 1 tí là xong) để xây dựng web SSR. Nó dùng HTML thuần với các cách tiếp cận truyền thống, khác với React dùng JSX. Vue cũng có bộ thư viện hỗ trợ nhưng ít hơn so với React. Cả 2 thư viện đều dùng virtual dom. Có Vue Native hỗ trợ phát triển mobile
 Vue cú pháp đơn giản hơn React 1 chút, tổng thể ngôn ngữ nó tốt hơn React. Nhưng React có nhiều thư viện, sử dụng rộng rãi nên có thể coi 2 cái ngang nhau.
 => 3 framework trên rất khó so sánh, nếu đã biết React thì k cần học thêm.
 
-SvelteJS là 1 JS framework xây frontend. Nó k dùng virtual dom, dùng html css thuần. Dưới góc nhìn của nhà sáng lập thì họ cho rằng Virtual DOM k nhanh như ta tưởng(có article về nó). Bản chất Svelte là 1 compiler giúp biên dịch code sang HTML, JS, CSS thuần tại thời điểm build để giảm bước xử lý phía client, zero dependencies. Svelte nó giống 1 compiler hơn là 1 framework. Tính năng Reactive của Svelte tức là DOM được đồng bộ với trạng thái của ứng dụng, k cần tới các thư viện phức tạp bên ngoài để quản lý state, tính đồng bộ được thể hiện luôn trong Javascript
+-> SvelteJS là 1 JS framework xây frontend. Nó k dùng virtual dom, dùng html css thuần. Dưới góc nhìn của nhà sáng lập thì họ cho rằng Virtual DOM k nhanh như ta tưởng(có article về nó). Bản chất Svelte là 1 compiler giúp biên dịch code sang HTML, JS, CSS thuần tại thời điểm build để giảm bước xử lý phía client, zero dependencies. Svelte nó giống 1 compiler hơn là 1 framework. Tính năng Reactive của Svelte tức là DOM được đồng bộ với trạng thái của ứng dụng, k cần tới các thư viện phức tạp bên ngoài để quản lý state, tính đồng bộ được thể hiện luôn trong Javascript
 Vẫn có thể dùng các thư viện giao diện với Svelte như bootstrap như bth, giao diện vẫn đẹp và code gọn hơn React mà tốc độ thì chắc chắn nhanh hơn rất nhiều. Dùng Rollup (kp webpack) nên khó khăn khi config bundle này nọ. Có hỗ trợ CSR và SSR
 => Framework quá khủng đè bẹp mọi JS framework/lib khác về hiệu năng. Nhưng performance kp là thông số duy nhất quyết định công nghệ của 1 dự án. Còn tùy vào dự án lớn hay nhỏ, khả năng tái sử dụng component, cộng đồng support đông đảo hay không. Nếu app cần tốc độ cực kỳ nhanh thì nên dùng Svelte, nó cứ như là code với html css thuần v đó.
 
-VanillaJS là từ chỉ vc sử dụng JS thuần, k dùng bất cứ thư viện phụ trợ nào kể cả jQuery. Trò đùa JS thuần lại chính là 1 framework có thể quyết định sử dụng thay thế React hay Vue. Svelte là framework gần với vanilla js nhất, nó cũng convert hết về vanilla thôi nên chậm hơn vanilla 1 tẹo thôi.
+-> VanillaJS là từ chỉ vc sử dụng JS thuần, k dùng bất cứ thư viện phụ trợ nào kể cả jQuery. Trò đùa JS thuần lại chính là 1 framework có thể quyết định sử dụng thay thế React hay Vue. Svelte là framework gần với vanilla js nhất, nó cũng convert hết về vanilla thôi nên chậm hơn vanilla 1 tẹo thôi.
 
-CMS(Content Management System) như wordpress, magneto, liferay đa phần dùng PHP. Nó là hệ thống quản trị nội dung trang web. Content được lưu trong database lấy thông qua backend. Có thể tạo cả CSR hoặc SSR bằng CMS được.
+-> CMS(Content Management System) như wordpress, magneto, liferay đa phần dùng PHP. Nó là hệ thống quản trị nội dung trang web. Content được lưu trong database lấy thông qua backend. Có thể tạo cả CSR hoặc SSR bằng CMS được.
 Website kiểu này k tùy chỉnh được, thậm chí k cần code cũng được.
 
-Gatsby => refer tới "Hiểu về gatsby"
+-> Gatsby => refer tới "Module hiểu bản chất về gatsby"
 Gatsby là 1 free open-source framework kết hợp tính năng từ React, GraphQL và Webpack thành 1 tool để xây dựng web tĩnh với tốc độ cực nhanh. Nó còn gọi là static site generator được built on top of Nodejs, tức là ứng dụng sinh ra ngay từ quá trình build và k cần sử dụng server. Mặc định hỗ trợ SPA, SEO. 
 Gatsby và NextJS có thể cạnh tranh là ngang nhau, k thể so sánh cái nào tốt hơn. Nhưng NextJS phổ biến và làm được nhiều thứ Gatsby k làm được nên Gatsby thua. Trừ khi muốn chơi GraphQL thì mới qua Gatsby.
 
@@ -41,20 +39,23 @@ Gatsby và NextJS có thể cạnh tranh là ngang nhau, k thể so sánh cái n
 => Dùng Gatsby: khi tạo static web, ít dữ liệu realtime, cần tốc độ cao và SEO
 => Dùng NextJS: khi tạo dynamic web, SEO tốt, dùng both client và server side.
 
-NextJS là 1 react framework cung thêm nhiều tính năng hơn như SSR, static file generator. Mặc định nó dùng SSR. Phải triển khải kèm 1 server nodejs http bất kỳ, có thể tùy chỉnh webpack tùy ý. Nó kp backend, nếu cần xử lý cơ sở dữ liệu hay gì lại phải thêm 1 ứng dụng tách biệt backend nữa dù bản thân nó đã là SSR rồi. Nếu dùng với ứng dụng đơn giản thì là điều k cần thiết. Còn nếu k cần làm gì trong server, ta vẫn phải tạo 1 server làm SSR cho nó nên tốn chi phí.
+-> NextJS là 1 React framework cung thêm nhiều tính năng hơn như SSR, static file generator. Mặc định nó dùng SSR. Phải triển khai kèm 1 server nodejs http bất kỳ, có thể tùy chỉnh webpack tùy ý. Nó kp backend, nếu cần xử lý cơ sở dữ liệu hay gì lại phải thêm 1 ứng dụng tách biệt backend nữa dù bản thân nó đã là SSR rồi. Nếu dùng với ứng dụng đơn giản thì là điều k cần thiết. Còn nếu k cần làm gì trong server, ta vẫn phải tạo 1 server làm SSR cho nó nên tốn chi phí.
 
-NestJS là 1 Node js framework giúp xây dựng server side app. Nó là phía backend như Node nhưng dù NodeJS hay React đều có thể tạo ra SSR website cho frontend được bằng cách gửi lại html nhưng điều này là k nên vì nó k mạnh. 
+-> NestJS là 1 Node js framework giúp xây dựng server side app. Nó là phía backend như Node nhưng dù NodeJS hay React đều có thể tạo ra SSR website cho frontend được bằng cách gửi lại html nhưng điều này là k nên vì nó k mạnh. 
 Nó là framework rất mạnh phía máy chủ có thể dùng thay vì dùng NodeJS thuần. Nó có sự kết hợp của OO, FP(Functional Programming) và FRP(Functional Reactive Programming).
 NodeJS dù k thể so sánh về hiệu năng với Go, C++, Java nhưng cũng đủ để chơi với máy chủ hàng triệu người dùng. Nó giải quyết vấn đề về architecture cho NodeJS với vài component đơn giản như controller, module, provider. Dễ dàng hơn trong việc chia ứng dụng thành các microservice.
 
-NuxtJS giống với NextJS nhưng NextJS xuất phát từ React còn Nuxt xuất phát từ Vue. Do React và Vue có cấu trúc code khác nhau nên chỉ cần học 1 trong 2.
+-> NuxtJS giống với NextJS nhưng NextJS xuất phát từ React còn Nuxt xuất phát từ Vue. Do React và Vue có cấu trúc code khác nhau nên chỉ cần học 1 trong 2.
 
-BackboneJS là JS framework rất nhẹ và phổ biến trong các ứng dụng quy mô nhỏ, app trang đơn or website. Nó tuân thủ đúng MVC và chuẩn kiến trúc ứng dụng web. Nó rất tiện vì phụ thuộc vào các thư viện cung sẵn tính năng như Lodash, jQuery. Xây ứng dụng và học rất dễ và nhanh từ html, css, js thuần. Hiệu năng tốt. Là sự khởi đầu tốt cho ứng dụng đơn giản  và luyện tập ở tầng thấp.
+-> BackboneJS là JS framework rất nhẹ và phổ biến trong các ứng dụng quy mô nhỏ, app trang đơn or website. Nó tuân thủ đúng MVC và chuẩn kiến trúc ứng dụng web. Nó rất tiện vì phụ thuộc vào các thư viện cung sẵn tính năng như Lodash, jQuery. Xây ứng dụng và học rất dễ và nhanh từ html, css, js thuần. Hiệu năng tốt. Là sự khởi đầu tốt cho ứng dụng đơn giản  và luyện tập ở tầng thấp.
 
-Remix là react-based framework hỗ trợ SSR được phát triển bởi team của React Router. Nó k support SSG nhưng vẫn có cách dùng cache để đem lại kết quả tương tự. Nó là fullstack web framework dùng cho client và server luôn.
+-> Remix là react-based framework hỗ trợ SSR được phát triển bởi team của React Router. Nó k support SSG nhưng vẫn có cách dùng cache để đem lại kết quả tương tự. Nó là fullstack web framework dùng cho client và server luôn.
 Về tốc độ thì remix vượt cả nextjs nhưng remix không phổ biến bằng nên ít nhu cầu dùng.
 
-MeteorJS là JS full-stack framework được viết bằng NodeJS. Nó dùng để build cả web, mobile, desktop app. Nó cho phép chia sẻ code giữa cả 2 môi trường. Chỉ cần hiểu về html, css, JS thuần là có thể dùng. Code 1 lần build cả android, iOS cũng được, tốc độ build nhanh. Thậm chí nó rất dễ học, k cần giỏi về lập trình. Dùng mongodb. Mặc định Meteor cũng dùng React.
+-> MeteorJS là JS full-stack framework được viết bằng NodeJS. Nó dùng để build cả web, mobile, desktop app. Nó cho phép chia sẻ code giữa cả 2 môi trường. Chỉ cần hiểu về html, css, JS thuần là có thể dùng. Code 1 lần build cả android, iOS cũng được, tốc độ build nhanh. Thậm chí nó rất dễ học, k cần giỏi về lập trình. Dùng mongodb. Mặc định Meteor cũng dùng React.
 Có hệ thống module lớn, cả npm. VD làm chức năng đăng nhập phải phân quyền phức tạp trong C#, java thì meteor gắn module phát chỉnh tí là xong.
 Ưu điểm tốt nhất của nó là dùng cho các ứng dụng tương tác real time, chỉ tập trung vào đó nên SEO yếu, k phù hợp cho các trang blog, bán hàng, tin tức, documentation. Về mọi mặt, Meteor k thể bằng React thuần nhưng với các ứng dụng realtime thì meteor là lựa chọn hàng đầu. 
+
+-> Preact là một thư viện JavaScript, được tuyên bố là 1 giải pháp thay thế 3kB nhanh cho React với cùng một API hiện đại của ES2015. Nó giúp phát triển virtual DOM nhanh nhất so với các frameworks khác và là một trong những thư viện có kích thước nhỏ nhất chỉ với 3kb. Nó tương tự React nhưng performance được cải thiện. VD ta dùng ứng dụng qua browser trên mobile nhưng tốc độ nó cứ như là dùng mobile app trực tiếp tải về v. 
+Có nhiều nguyên nhân khiến cho tốc độ và kích thước được cải thiện khi dùng Preact ta k đi sâu. Có thể chuyển 1 website bằng React thuần sang Preact thoải mái nhưng sẽ phải fix nhiều lỗi mò thủ công vì vấn đề về mặt tương thích
 
