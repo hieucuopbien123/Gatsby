@@ -60,9 +60,10 @@ Client-side router được support bởi Gatsby là @reach/router mà k cần d
 
 -> JAMstack architecture là 1 kiến trúc phát triển web hiện đại dựa trên JS phía client, các API có thể tái sử dụng và Markup dựng sẵn. Khi nói về stack là ta nói về kiến trúc xây dựng trang web mang hiệu suất và bảo mật cao, chi phí mở rộng thấp. VD: MERNStack
 Javascript APIs Markup Stack là mô hình được đánh giá là có tốc độ nhanh nhất, bảo mật cao, chi phí thấp. 
-Javascript: React, Vue, Svelte
-APIs: Cloudinary, Commento, SoundCloud
-Markup: Gatsby, Hugo
+Javascript: React, Vue, Svelte lo phần xử lý tương tác thông qua sự kiện xây web dynamic
+APIs: từ các nguồn như Firebase, Okta, Cloudinary, Commento, SoundCloud từ đơn giản đến phức tạp mà k cần chạy 1 server xử lý logic
+Markup: Dùng SSG như Gatsby, Hugo, NextJS để convert frontend design viết bằng các framework thành simple static HTML mà có thể dùng bằng các web hosting đơn giản như firebase, amazon s3 mà k dùng server base hosting riêng
+=> Tức mô hình này tạo web cực kỳ rẻ mà vẫn đầy đủ chức năng, tốc độ nhanh, dynamic, SEO tốt. Có thể tùy ý custom, nếu 1 nền tảng cloud k đủ tốt có thể chuyển sang 1 nền tảng khác dễ dàng. Phải trả phí nếu muốn dùng tốt nhất nhưng chỉ khi web đã có ng dùng và tạo ra thu nhập.
 
 Có nhiều dòng khác cũng hỗ trợ static site generator: NextJS, NuxtJS, Hugo, 11ty
 
