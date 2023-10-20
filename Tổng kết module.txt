@@ -11,5 +11,12 @@ Gatsby:
 
 
 # Other
+-> Ý tưởng xây website tĩnh thay đổi được nội dung mà k dùng Gatsby
+Website tĩnh k có db. Ta có thể tạo 1 server đơn giản dùng để generate html từ template có sẵn và data nhận vào. Rồi host server này lên bất cứ nền tảng free nào (vì lưu lượng truy cập k nhiều)
+Mỗi lần thêm hay edit bài viết mới thì fill vào các trường data, goi API tới server generate ra file html. Rồi host ngay html js css thuần đó lên vercel or bất cứ nền tảng hosting nào, thêm domain chuẩn vào là được.
+Web này k thay đổi được nhiều data như các web phức tạp khác, chuẩn SEO. Đặc điểm là mỗi trang của web đều là tĩnh chứ k dùng CSR hay SSR nên tốc độ vượt trội (SSR thì mỗi query sẽ phải build lại page).
+=> Thực tế ý tưởng này không mới, ngày xưa họ dùng website tĩnh làm blog và update thủ công rồi nhưng ở đây có thêm 1 server giúp generate html tiện hơn nếu làm thuê cho khách hàng sử dụng. 
+
+
 
 
