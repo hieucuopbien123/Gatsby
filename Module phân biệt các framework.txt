@@ -1,7 +1,7 @@
 # Các react-based framework, build tool, JS framework: Gatsby, NextJS, NestJS, NuxtJS, React, Vue, Angular, Vite, Svelte, Meteor, Remix Run, Webpack, CRA, VanillaJS, CMS, BackboneJS, Preact.
 
 -> Webpack là bundler-based build tool, để chạy ứng dụng, nó phải xử lý toàn bộ JS files bao gồm cả dependencies và application code. Khi ta save thay đổi 1 file, toàn bộ code JS sẽ được bundle lại xong thì dev server mới ready. 
-CRA là tool giúp dùng webpack dễ hơn với React khi mà nó config mọi thứ sẵn cho tiện k phải config lại, chứ build tool đúng phải nói là webpack. CRA giúp chúng ta tập trung vào code hơn là config vì nó config hộ thôi, nó kp là 1 build tool.
+CRA là tool giúp dùng webpack dễ hơn với React khi mà nó config mọi thứ sẵn cho tiện k phải config lại, chứ build tool đúng phải nói là webpack. CRA giúp chúng ta tập trung vào code hơn là config vì nó config hộ các cái basic thôi, nó kp là 1 build tool.
 
 -> Vite là 1 JS build tool ra đời nhằm cải tiến hiệu suất cho dev dùng webpack. Vite dùng Rollup để perform dead-code elimination(tree shaking) tốt hơn webpack nhưng tạo production build lâu hơn. 2 vấn đề cơ bản:
 1) Ngày xưa khác chứ bh, browser cho phép ES Module nên ta có thể chạy JS trên browser mà k cần bundle lại như trước. Như v Vite chỉ cần serve đúng phần code mà browser cần dùng bằng ES module. 
@@ -47,7 +47,7 @@ NodeJS dù k thể so sánh về hiệu năng với Go, C++, Java nhưng cũng �
 
 -> NuxtJS giống với NextJS nhưng NextJS xuất phát từ React còn Nuxt xuất phát từ Vue. Do React và Vue có cấu trúc code khác nhau nên chỉ cần học 1 trong 2.
 
--> BackboneJS là JS framework rất nhẹ và phổ biến trong các ứng dụng quy mô nhỏ, app trang đơn or website. Nó tuân thủ đúng MVC và chuẩn kiến trúc ứng dụng web. Nó rất tiện vì phụ thuộc vào các thư viện cung sẵn tính năng như Lodash, jQuery. Xây ứng dụng và học rất dễ và nhanh từ html, css, js thuần. Hiệu năng tốt. Là sự khởi đầu tốt cho ứng dụng đơn giản  và luyện tập ở tầng thấp.
+-> BackboneJS là JS framework rất nhẹ và phổ biến trong các ứng dụng quy mô nhỏ, app trang đơn or website. Nó tuân thủ đúng MVC và chuẩn kiến trúc ứng dụng web. Nó rất tiện vì phụ thuộc vào các thư viện cung sẵn tính năng như Lodash, jQuery. Xây ứng dụng và học rất dễ và nhanh từ html, css, js thuần. Hiệu năng tốt. Là sự khởi đầu tốt cho ứng dụng đơn giản và luyện tập ở tầng thấp.
 
 -> Remix là react-based framework hỗ trợ SSR được phát triển bởi team của React Router. Nó k support SSG nhưng vẫn có cách dùng cache để đem lại kết quả tương tự. Nó là fullstack web framework dùng cho client và server luôn.
 Về tốc độ thì remix vượt cả nextjs nhưng remix không phổ biến bằng nên ít nhu cầu dùng.
